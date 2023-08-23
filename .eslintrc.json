@@ -1,0 +1,64 @@
+{
+  "root": true,
+  " env": { "browser": true, "es2020": true, "node": true },
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "@unocss"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.json"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react-refresh", "prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "semi": false,
+        "singleQuote": true,
+        "bracketSameLine": true,
+        "trailingComma": "none",
+        "endOfLine": "lf"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "off",
+    "react/display-name": "off",
+    "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/no-unknown-property": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false
+      }
+    ]
+  }
+}

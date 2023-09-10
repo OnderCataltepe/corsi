@@ -6,6 +6,7 @@ import { generatePosition } from '~/utils';
 import { BOARD_LENGTH } from '~/constants';
 
 interface BoardProps {
+  start: boolean;
   index: number;
   count: number;
   locations: number[];
@@ -13,7 +14,7 @@ interface BoardProps {
   setAnswer: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const Board = ({ index, count, answer, setAnswer, locations }: BoardProps): JSX.Element => {
+const Board = ({ index, count, answer, setAnswer, locations, start }: BoardProps): JSX.Element => {
   const board = new Array(BOARD_LENGTH).fill(null).map((_, i) => i);
   const { warning } = useStore((state) => state);
 
@@ -38,6 +39,7 @@ const Board = ({ index, count, answer, setAnswer, locations }: BoardProps): JSX.
             flex={margin[idx] || '~ items-end justify-end'}>
             {locations.includes(idx) && (
               <Cube
+                start={start}
                 clickCube={() => setAnswer((prev: any) => [...prev, idx])}
                 key={idx}
                 active={locations[index] === idx || answer[answer.length - 1] === idx}

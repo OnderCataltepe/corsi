@@ -76,6 +76,7 @@ const Test = (): JSX.Element => {
         setAnswer={setAnswer}
         count={count}
         index={index}
+        start={start}
       />
     </div>
   );

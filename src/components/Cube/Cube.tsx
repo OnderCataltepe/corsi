@@ -7,6 +7,7 @@ interface CubeProps {
   animated?: boolean;
   active?: boolean;
   clickCube?: () => void;
+  start?: boolean;
 }
 
 const Face = ({ className, active, ...rest }: PropsWithChildren<ViewProps>): JSX.Element => {
@@ -23,12 +24,12 @@ const Face = ({ className, active, ...rest }: PropsWithChildren<ViewProps>): JSX
   );
 };
 
-const Cube = ({ animated, active, clickCube }: CubeProps): JSX.Element => {
+const Cube = ({ animated, active, start, clickCube }: CubeProps): JSX.Element => {
   const { flow } = useStore((state) => state);
 
   return (
     <div
-      pointerEvents={flow ? 'none' : 'auto'}
+      pointer-events={flow || !start ? 'none' : 'auto'}
       onClick={clickCube}
       cursor={animated ? 'auto' : 'pointer'}
       w="30px"

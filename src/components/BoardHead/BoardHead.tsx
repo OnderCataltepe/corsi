@@ -14,7 +14,7 @@ const BoardHead = ({ start, startHandler }: BoardHeadProps): JSX.Element => {
   return (
     <div m="b-4" flex="~ justify-between" gap="10px">
       <Button
-        pointerEvents={flow || correct || wrong ? 'none' : 'auto'}
+        pointer-events={flow || correct || wrong ? 'none' : 'auto'}
         op={flow || correct || wrong ? '20' : '100'}
         b="1 solid sky-500 hover:sky-600"
         bg="sky-500 hover:sky-600"

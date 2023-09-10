@@ -3,7 +3,7 @@ import { INTRODUCTION } from '~/constants';
 
 const Home = (): JSX.Element => {
   return (
-    <div p="7" w="md:1/2 full" max-w="700px" b="1 solid sky-400">
+    <div p="sm:7 3" w="md:1/2 full" max-w="700px" b="1 solid sky-400">
       <h1 text="center 5xl sky-400" mb="4">
         Corsi Task
       </h1>
@@ -19,13 +19,13 @@ const Home = (): JSX.Element => {
           display="block"
           w="full"
           m="t-4 x-auto"
-          b="1 solid sky-400"
           p="1"
           transition="bg 300"
-          bg="transparent hover:sky-400"
+          b="1 solid sky-500 hover:sky-600"
+          bg="sky-500 hover:sky-600"
           font="500"
           cursor="pointer"
-          text="xl gray-800 center"
+          text="xl white center"
           href="/test">
           Start Test
         </a>

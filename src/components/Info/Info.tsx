@@ -49,9 +49,9 @@ const Info = (): JSX.Element | null => {
       {finished ? (
         <>
           <p flex="~ items-center" gap="10px" text="center 2rem white">
-            Your span score is <span text=" 4rem">{score}</span>
+            Your score is <span text=" 3rem">{score}</span>
           </p>
-          <div flex="~" gap="20px">
+          <div flex="~" gap="20px" m="t-2">
             <a
               href="/"
               flex="~ items-center justify-center"
@@ -61,7 +61,7 @@ const Info = (): JSX.Element | null => {
               transition="bg 300"
               bg="hover:white sky-100"
               text="sky-500 xl"
-              b="1 solid sky-500"
+              b="1 solid sky-100"
               p="y-1">
               <img alt="home icon" w="20px" src={homeIcon} />
               <p font="500">Home</p>

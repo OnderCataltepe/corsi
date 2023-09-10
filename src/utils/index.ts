@@ -12,8 +12,7 @@ export const generateLocation = (n: number): number[] => {
 };
 
 // A function written to take advantage of random flex values that I will use in unocss to make the cubes look a bit more messy.
-export const generatePosition= () :string=> {
-
+export const generatePosition = (): string => {
   const first = Math.floor(Math.random() * 3 + 1);
   const second = Math.floor(Math.random() * 3 + 1);
   let positionFirst;
@@ -43,8 +42,24 @@ export const generatePosition= () :string=> {
       positionSecond = 'justify-end';
       break;
     default:
-      positionSecond = 'justify-center';
+      positionSecond = 'justify-end';
   }
 
-  return `~ ${positionFirst} ${positionSecond}`
+  return `~ row ${positionFirst} ${positionSecond}`;
 };
+
+export const checkAnswer = (arr1: number[], arr2: number[], type: "forward" |"backward") => {
+  if (arr1.length !== arr2.length) {
+    return false;
+  } else {
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[type==="forward" ?i : arr2.length-i-1]) {
+        return false;
+      }
+    }
+  }
+
+  return true
+};
+
+

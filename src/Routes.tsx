@@ -1,26 +1,27 @@
 import { RouterProvider, createBrowserRouter, RouteObject } from 'react-router-dom';
 
 import Home from '~/pages/home';
-import Board from '~/pages/board';
-import Result from '~/pages/result';
+import Test from '~/pages/test';
+import NotFound from '~/pages/notfound';
 import Layout from '~/layout';
 
 const routes: RouteObject[] = [
   {
     path: '/',
     element: <Layout />,
+
     children: [
       {
         path: '/',
         element: <Home />
       },
       {
-        path: '/board',
-        element: <Board />
+        path: '/test',
+        element: <Test />
       },
       {
-        path: '/result',
-        element: <Result />
+        path: '*',
+        element: <NotFound />
       }
     ]
   }

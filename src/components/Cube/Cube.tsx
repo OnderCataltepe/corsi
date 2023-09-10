@@ -1,17 +1,20 @@
 import { PropsWithChildren, HTMLAttributes } from 'react';
+import useStore from '~/store/useStore';
 
 type ViewProps = HTMLAttributes<HTMLDivElement>;
 
 interface CubeProps {
   animated?: boolean;
+  active?: boolean;
+  clickCube?: () => void;
 }
 
-const Face = ({ className, ...rest }: PropsWithChildren<ViewProps>): JSX.Element => {
+const Face = ({ className, active, ...rest }: PropsWithChildren<ViewProps>): JSX.Element => {
   return (
     <div
       {...rest}
-      b="1 solid sky-400"
-      bg="sky-300"
+      b={active ? '1 solid amber-400' : '1 solid sky-400'}
+      bg={active ? 'amber-300' : 'sky-300'}
       op="50"
       w="30px"
       h="30px"
@@ -20,9 +23,14 @@ const Face = ({ className, ...rest }: PropsWithChildren<ViewProps>): JSX.Element
   );
 };
 
-const Cube = ({ animated }: CubeProps): JSX.Element => {
+const Cube = ({ animated, active, clickCube }: CubeProps): JSX.Element => {
+  const { flow } = useStore((state) => state);
+
   return (
     <div
+      pointerEvents={flow ? 'none' : 'auto'}
+      onClick={clickCube}
+      cursor={animated ? 'auto' : 'pointer'}
       w="30px"
       h="30px"
       m={animated ? '40px' : 'md:25px 5px'}
@@ -35,12 +43,12 @@ const Cube = ({ animated }: CubeProps): JSX.Element => {
         transform="preserve-3d"
         rotate="x-342deg y-10deg z-0deg"
         animate={animated && 'cubeturn count-infinite'}>
-        <Face rotate="x-90deg" un-translate="y-[-15px]" />
-        <Face rotate="x-270deg" un-translate="y-15px" />
-        <Face rotate="y-270deg" un-translate="x-[-15px]" />
-        <Face rotate="y-270deg" un-translate="x-15px" />
-        <Face un-translate="z-15px" />
-        <Face rotate="y-180deg" un-translate="z-[-15px]" />
+        <Face active={active} rotate="x-90deg" un-translate="y-[-15px]" />
+        <Face active={active} rotate="x-270deg" un-translate="y-15px" />
+        <Face active={active} rotate="y-270deg" un-translate="x-[-15px]" />
+        <Face active={active} rotate="y-270deg" un-translate="x-15px" />
+        <Face active={active} un-translate="z-15px" />
+        <Face active={active} rotate="y-180deg" un-translate="z-[-15px]" />
       </div>
     </div>
   );

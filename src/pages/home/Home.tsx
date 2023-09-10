@@ -1,4 +1,5 @@
 import Cube from '~/components/Cube/';
+import { INTRODUCTION } from '~/constants';
 
 const Home = (): JSX.Element => {
   return (
@@ -11,13 +12,7 @@ const Home = (): JSX.Element => {
       </div>
       <div>
         <p text="xl gray-800" font="400">
-          Corsi task is a psychological test that is used to measure your visual-spatial short-term
-          working memory. In this test, you have to mark the blocks that change color in order on
-          the screen in the same order. The block sequence starts simple, but it gets more complex
-          until your performance drops. This game shows how well your brain processes and stores
-          visual information. In our application, the number of blocks will always remain the same,
-          but the number of blocks you need to mark will increase. This way, you can also test your
-          backward memory ability.{' '}
+          {INTRODUCTION}
         </p>
         <a
           decoration="none"
@@ -31,7 +26,7 @@ const Home = (): JSX.Element => {
           font="500"
           cursor="pointer"
           text="xl gray-800 center"
-          href="/board">
+          href="/test">
           Start Test
         </a>
       </div>
